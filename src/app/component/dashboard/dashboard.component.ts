@@ -10,12 +10,12 @@ import { CrudService } from 'src/app/service/crud.service';
 export class DashboardComponent implements OnInit {
 
   taskObj : Task = new Task();
-  taskArr : Task[] = []
+  taskArr : Task[] = [];
 
-  addTaskValue : string ='';
-  editTaskValue : string ='';
+  addTaskValue : string = '';
+  editTaskValue : string = '';
 
-  constructor(private crudService: CrudService) { }
+  constructor(private crudService : CrudService) { }
 
   ngOnInit(): void {
     this.editTaskValue = '';
@@ -25,9 +25,9 @@ export class DashboardComponent implements OnInit {
     this.taskArr = [];
   }
   getAllTask() {
-    debugger
     this.crudService.getAllTask().subscribe(res => {
       this.taskArr = res;
+      console.log(res)
     }, err => {
       alert("Unable to get list of tasks");
     });
@@ -67,3 +67,4 @@ export class DashboardComponent implements OnInit {
 
 
 }
+
